@@ -141,30 +141,23 @@
     <script src="/public/js/common.js"></script>
     <script>
 
-        require.config({
-            baseUrl: '/public',
-            paths: {
-                jquery: 'assets/jquery/jquery.min'
-            }
-        });
-
-        // $.ajax({
-        //     // http://localhost:3000/employee/employeeLogin
-        //     url: '/api/employee/employeeLogin',
-        //     type: 'post',
-        //     success: function (info) {
-        //         console.log(info);
-        //     }
-        // })
         $.ajax({
             url: '/api/employee/checkRootLogin',
             type: 'get',
-            success: function (info) {
+            success:function(info){
                 if(info.error){
                     location.href = '/login.html';
                 }
             }
-        })
+        });
+
+        // require.config({
+        //     baseUrl: '/public',
+        //     paths: {
+        //         jquery: 'assets/jquery/jquery.min'
+        //     }
+        // });
+
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
