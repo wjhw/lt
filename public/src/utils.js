@@ -1,8 +1,24 @@
-require([''],function($){
-    require.config({
-        baseUrl: '/public',
-        paths:{
-            jquery: 'assets/jquery/jquery.min'
+require(['jquery'],function($){
+   //检测登录
+   $.ajax({
+        url: '/api/employee/checkRootLogin',
+        type: 'get',
+        success:function(info){
+            if(info.error){
+                location.href = '/login.html';
+            }
         }
+    });
+    // 退出功能
+    $('.logout').on('click',function(){
+        $.ajax({
+            url: '/api/employee/employeeLogout',
+            type: 'get',
+            success:function(info){
+                if(info.success){
+                    location.href = '/login.html';
+                }
+            }
+        });
     });
 })
