@@ -9,6 +9,8 @@ require(['jquery'],function($){
             }
         }
     });
+
+
     // 退出功能
     $('.logout').on('click',function(){
         $.ajax({
@@ -21,4 +23,8 @@ require(['jquery'],function($){
             }
         });
     });
+
+    $('.navs a + ul').prev().on('click',function(){
+        $(this).next().slideToggle();
+    })
 })
